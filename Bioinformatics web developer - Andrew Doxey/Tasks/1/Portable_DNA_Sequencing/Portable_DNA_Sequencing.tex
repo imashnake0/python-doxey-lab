@@ -1,0 +1,263 @@
+\documentclass[hidelinks, 11pt]{article}
+
+\title{Smartphone apps for portable \\ DNA sequencing and data analysis}
+\author{Kamalesh Reddy Paluru}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,shapes.misc}
+\usepackage{hologo} % or use package holog?
+
+\usepackage{empheq}
+\usepackage{color}
+%\usepackage{parallel,enumitem}
+%\usepackage{textgreek}
+
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\lstset{upquote=true}
+
+\UseRawInputEncoding
+\usetikzlibrary{decorations.pathmorphing,patterns}
+
+\definecolor{myblue}{rgb}{.92549, .98824, 0.95686}
+\newlength\mytemplen
+\newsavebox\mytempbox
+
+\makeatletter
+\newcommand\mybluebox{%
+\@ifnextchar[%]
+{\@mybluebox}%
+{\@mybluebox[0pt]}}
+
+\def\@mybluebox[#1]{%
+\@ifnextchar[%]
+{\@@mybluebox[#1]}%
+{\@@mybluebox[#1][0pt]}}
+
+\def\@@mybluebox[#1][#2]#3{
+\sbox\mytempbox{#3}%
+\mytemplen\ht\mytempbox
+\advance\mytemplen #1\relax
+\ht\mytempbox\mytemplen
+\mytemplen\dp\mytempbox
+\advance\mytemplen #2\relax
+\dp\mytempbox\mytemplen
+\colorbox{myblue}{\hspace{1em}\usebox{\mytempbox}\hspace{1em}}}
+
+\makeatother
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+language=Python,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\small\ttfamily},
+numbers=none,
+numberstyle=\tiny\color{gray},
+keywordstyle=\color{blue},
+commentstyle=\color{dkgreen},
+stringstyle=\color{mauve},
+breaklines=true,
+breakatwhitespace=true,
+tabsize=3
+}
+
+\newcommand{\Lagr}{\mathcal{L}}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+  \noindent\rule{16cm}{0.4pt}
+  \section*{Abstract} %\cite{Taylor2005}}
+  \noindent\rule{16cm}{0.4pt}
+\end{center}
+
+\begin{changemargin}{1cm}{1cm}
+\textit{The following entails recent advancements in portable DNA sequencing and aims to answer some questions about the same.}
+\end{changemargin}
+
+\begin{center}
+  \noindent\rule{16cm}{0.4pt}
+  \section*{Introduction} %\cite{Taylor2005}}
+  \noindent\rule{16cm}{0.4pt}
+\end{center}
+
+\begin{changemargin}{0.3cm}{0.3cm}
+
+\noindent First, we will look at some basic biology concepts and answer some questions to better understand DNA sequencing:
+
+\begin{changemargin}{0.9cm}{0.9cm}
+  \begin{center}
+    \noindent \textbf{What is DNA sequencing?}
+  \end{center}
+  DNA determines what proteins are synthesized and so, they play an important role in determining how an organism behaves and looks like (determines its characteristics and also charchteristics of its offspring). How are these instructions stored? They are stored as a long sequence of 4 chemicals/letters (Adenine $\rightarrow$ A, Thymine $\rightarrow$ T, Cytosine $\rightarrow$ C, and Guanine $\rightarrow$ G). DNA sequencing is the process of determining the order of these 4 chemicals, given a strand of DNA.
+  \begin{center}
+    \noindent \textbf{How is DNA sequenced? ("Shotgun Sequencing")}
+  \end{center}
+  DNA is a very long sequence of A's, T's, C's, and G's. So, the strand is first broken (how?) into smaller strands. The smaller strands are then sequenced individually (If you can sequence a shorter strand why not a longer one; and how long of a strand CAN you sequence?). Then, we create thousands of copies of each small strand (to easily identify them?). These small strands are then individually sequenced using enzymes and the four molecules; A, C, G, and T (look into mechanism). Now, somehow using the aforementioned enzymes and molecules we attain the sequences of these individual strands, these small sequences are stitched together using computers  (is this where data analysis plays a major role?) to give us \emph{the sequence of the entire genome}.
+\end{changemargin}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.18]{1024px-DNA_Structure+Key+Labelled.pn_NoBB.png}
+    \caption{3D model of helical structure of DNA}
+    \label{fig:sub1}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[scale=0.195]{800px-DNA_chemical_structure.svg.png}
+    \caption{Demonstrates size of DNA}
+    \label{fig:sub2}
+  \end{subfigure}
+  \caption{Structure of double-stranded DNA for reference}
+  \label{fig:test}
+  \end{figure}
+
+\begin{center}
+  \noindent\rule{16cm}{0.4pt}
+  \section*{Portable DNA Sequencing} %\cite{Taylor2005}}
+  \noindent\rule{16cm}{0.4pt}
+\end{center}
+
+There are a variety of sequencing methods, we will be looking into "Nanopore Sequencing". This method is, byfar, the most portable. There are other sequencers (Illumina HiSeq 2500 sequencer and BGI MGISEQ-2000RS sequencer for instance) that use fairly small machines (possibility of miniturization?) and other sequencing methods, but our current state of technology does not allow miniturization (yet!).
+  \begin{center}
+    \noindent \textbf{Nanopore Sequencing}
+  \end{center}
+  Since we have established that: right now, nanopore sequencing is the most portable form of sequencing; we will first look at what nanopore sequncing is. It is best explained by (as we will see later) the current pioneer in nanopore technology, Oxford Nanopore Technologies:
+  \begin{changemargin}{2cm}{2cm}
+    ``Nanopore sequencing is a unique, scalable technology that enables direct, real-time analysis of long DNA or RNA fragments. It works by monitoring changes to an electrical current as nucleic acids are passed through a protein nanopore. The resulting signal is decoded to provide the specific DNA or RNA sequence.'' %\footnote[1]{Hey}
+  \end{changemargin}
+  So, nanopore sequencing involves passing a single-stranded DNA molecule through a "protein nanopore" and measuring changes in electric current to determine the base pair. This makes sense because we know that atoms are around $10^{-10}$m in diameter, so for a single strand of DNA (which is around 8-10 atoms wide) we have a width of  $\approx 10^{-9}$m $= 1$nm; hence nanopore! The devices used are surprisingly small, they are \textbf{really} small.
+
+  \begin{figure}
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[scale=0.2]{ont_1.jpg}
+      \caption{Fongle}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[scale=0.18]{ont_2.jpg}
+      \caption{\textbf{MinION}}
+    \end{subfigure}
+    \caption{The Fongle and MinION can be used for portable analysis}
+    \end{figure}
+
+    \begin{figure}
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{ont_4.png}
+        \caption{GridION}
+      \end{subfigure}%
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.195]{ont_5.png}
+        \caption{PromethION}
+      \end{subfigure}
+      %\begin{changemargin}{3cm}{3cm}
+      \caption{GridION and PromethION can be used for flexible, high-throughput benchtop sequencing}
+      %\end{changemargin}
+    \end{figure}
+
+    \begin{figure}
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{ont_6.png}
+        \caption{SmidgION}
+      \end{subfigure}%
+      \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[scale=0.195]{ont_7.jpg}
+        \caption{Plongle}
+      \end{subfigure}
+      %\begin{changemargin}{3cm}{3cm}
+      \caption{SmidgION and Plongle are under development and are excitingly small}
+      %\end{changemargin}
+    \end{figure}
+
+    \begin{center}
+      \noindent\rule{16cm}{0.4pt}
+      \section*{Smartphone apps} %\cite{Taylor2005}}
+      \noindent\rule{16cm}{0.4pt}
+    \end{center}
+
+    \begin{changemargin}{2cm}{2cm}
+    \begin{center}
+      \noindent \textbf{What mobile apps are available in this space?}
+    \end{center}
+
+    \emph{MinKNOW:} 
+    
+      The first app that come to mind is, of course, MinKNOW. Oxford Nanopore Technologies' very own app.
+    
+
+    \begin{center}
+      \noindent \textbf{When were they developed?}
+    \end{center}
+
+    \emph{MinKNOW:}
+    
+      MinKNOW is a general application that existed for a while but the mobile app was formally released on November 25th, 2020.
+    
+
+    \begin{center}
+      \noindent \textbf{What features do they offer?}
+    \end{center}
+
+    \emph{MinKNOW:}\\
+    As stated in ONT's website:
+    \begin{changemargin}{1cm}{1cm}
+      ``It carries out several core tasks, including data acquisition, real-time analysis and feedback, local basecalling, and data streaming - whilst providing device control including selecting the run parameters, sample identification and tracking, and ensuring that the platform chemistry is performing correctly to run the samples.''
+    \end{changemargin}
+    The app basically helps manage said devices, we shall also discuss a complementary app, iGenomics.
+
+    \begin{center}
+      \noindent \textbf{Which apps are used most frequently by consumers?}
+    \end{center}
+
+    \emph{MinKNOW:}\\
+    MinKNOW basically dominates everyother app as far as nanopore sequencing goes. This is mostly due to the availability of their own native devices, enabling them to modify their app as per device upgrades. Consumers are likely to use MinKNOW if they own a, say, MinION. Similar to how Android users likely use Google Chrome.
+
+    \begin{center}
+      \noindent \textbf{Are there any advantages and limitations of these tools?}
+    \end{center}
+
+    \emph{MinKNOW:}\\
+    Advantages: \\
+    1) With new device rollouts, MinKNOW can simply get a software update to accomodate the device(/s). \\
+
+  \end{changemargin}
+
+\end{changemargin}
+\end{document}
