@@ -156,9 +156,9 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
   \end{center}
   Since we have established that: right now, nanopore sequencing is the most portable form of sequencing; we will first look at what nanopore sequncing is. It is best explained by (as we will see later) the current pioneer in nanopore technology, Oxford Nanopore Technologies:
   \begin{changemargin}{2cm}{2cm}
-    ``Nanopore sequencing is a unique, scalable technology that enables direct, real-time analysis of long DNA or RNA fragments. It works by monitoring changes to an electrical current as nucleic acids are passed through a protein nanopore. The resulting signal is decoded to provide the specific DNA or RNA sequence.'' %\footnote[1]{Hey}
+    ``Nanopore sequencing is a unique, scalable technology that enables direct, real-time analysis of long DNA or RNA fragments. It works by monitoring changes to an electrical current as nucleic acids are passed through a protein nanopore. The resulting signal is decoded to provide the specific DNA or RNA sequence.'' \textsuperscript{[7]} %\footnote[1]{Hey}
   \end{changemargin}
-  So, nanopore sequencing involves passing a single-stranded DNA molecule through a "protein nanopore" and measuring changes in electric current to determine the base pair. This makes sense because we know that atoms are around $10^{-10}$m in diameter, so for a single strand of DNA (which is around 8-10 atoms wide) we have a width of  $\approx 10^{-9}$m $= 1$nm; hence nanopore! The devices used are surprisingly small, they are \textbf{really} small.
+  So, nanopore sequencing involves passing a single-stranded DNA molecule through a "protein nanopore" and measuring changes in electric current to determine the base pair. This makes sense because we know that atoms are around $10^{-10}$m in diameter, so for a single strand of DNA (which is around 8-10 atoms wide) we have a width of  $\approx 10^{-9}$m $= 1$nm; hence nanopore! The devices used are surprisingly small, they are \textbf{really} small. \textsuperscript{[8]}
 
   \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -209,7 +209,7 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     \begin{center}
       \noindent\rule{16cm}{0.4pt}
       \section*{Smartphone apps} %\cite{Taylor2005}}
-      \noindent\rule{16cm}{0.4pt}
+      %\noindent\rule{16cm}{0.4pt}
     \end{center}
 
     \begin{center}
@@ -222,59 +222,139 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
       \end{tabular}
     \end{center}
 
-    \hspace{0.8cm}
+    \noindent\rule{16cm}{0.4pt}
 
     \begin{changemargin}{2cm}{2cm}
+    %\noindent\rule{12cm}{0.4pt}
     \begin{center}
-      \noindent \textbf{What mobile apps are available in this space?}
+      \textbf{MinKNOW}
+      \noindent\rule{12cm}{0.1pt}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{What mobile apps are available in this space?}
+      \end{empheq}
     \end{center}
 
-    \emph{MinKNOW:} 
+    %\emph{MinKNOW:} 
     
-      The first app that come to mind is, of course, MinKNOW. Oxford Nanopore Technologies' very own app.
+      Oxford Nanopore Technologies has their very own app: \textbf{MinKNOW}. As far as nanopore DNA sequencing is concerned, there are no other prominent apps (explained later).
     
-    \begin{center}
-      \noindent \textbf{When were they developed?}
-    \end{center}
-
-    \emph{MinKNOW:}
-    
-      MinKNOW is a general application that existed for a while but the mobile app was formally released on November 25th, 2020.
+    %\noindent\rule{12cm}{0.4pt}
 
     \begin{center}
-      \noindent \textbf{What features do they offer?}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{When were they developed?}
+      \end{empheq}
     \end{center}
 
-    \emph{MinKNOW:}\\
+    %\emph{MinKNOW:}
+    
+      MinKNOW is a general application that existed for a while (since at least 2015) but the mobile app was formally released on \textbf{November 25th, 2020}. \textsuperscript{[9]}
+
+    \begin{center}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{What features do they offer?}
+      \end{empheq}
+    \end{center}
+
+    %\emph{MinKNOW:}\\
     As stated in ONT's website:
     \begin{changemargin}{1cm}{1cm}
-      ``It carries out several core tasks, including data acquisition, real-time analysis and feedback, local basecalling, and data streaming - whilst providing device control including selecting the run parameters, sample identification and tracking, and ensuring that the platform chemistry is performing correctly to run the samples.''
+      ``It carries out several core tasks, including: 
+      \begin{itemize}
+      \item \textbf{Data acquisition}
+      \item \textbf{Real-time analysis and feedback}
+      \item \textbf{Local basecalling}
+      \item \textbf{Data streaming}
+      \item \textbf{Progressive unblocking} \\
+            %\begin{changemargin}{0cm}{0cm}
+            - Increased data yield of a flow cell \\
+            - Active voltage control $\to$ improved signal consistency during a run.\\
+            %\end{changemargin}
+      \end{itemize}
+      - whilst providing device control including \textbf{selecting the run parameters}, \textbf{sample identification and tracking}, and ensuring that the platform chemistry is performing correctly to run the samples.'' \textsuperscript{[9]} \textsuperscript{[10]}
     \end{changemargin}
-    The app basically helps manage said devices, we shall also discuss a complementary app, iGenomics.
+    It also enables users to \textbf{run group experiments} and \textbf{view/export metrics to a PDF}. Essentially, the app helps manage their devices, we shall also discuss complementary apps, iGenomics and GenoPo.
 
     \begin{center}
-      \noindent \textbf{Which apps are used most frequently by consumers?}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{Which apps are used most frequently by consumers?}
+      \end{empheq}
     \end{center}
 
-    \emph{MinKNOW:}\\
-    MinKNOW basically dominates everyother app as far as nanopore sequencing goes. This is mostly due to the availability of their own native devices, enabling them to modify their app as per device upgrades. Consumers are likely to use MinKNOW if they own a, say, MinION. Similar to how Android users likely use Google Chrome.
+    %\emph{MinKNOW:}\\
+    MinKNOW basically dominates everyother app (if any) as far as nanopore sequencing goes. This is mostly due to the availability of their own native devices, enabling them to modify their app as per device upgrades. Consumers are likely to use MinKNOW if they own a, say, MinION. Similar to how Android users likely use Google Chrome. Besides, sources indicate that they have patented the technology $\implies$ nanospore sequencing is intellectual property of ONT (for now?). \textsuperscript{[11]}
 
     \begin{center}
-      \noindent \textbf{Are there any advantages and limitations of these tools?}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{Are there any advantages and limitations of these tools?}
+      \end{empheq}
     \end{center}
 
-    \emph{MinKNOW:}\\
-    Advantages: \\
-    1) With new device rollouts, MinKNOW can simply get a software update to accomodate the device(s). \\
+    %\emph{MinKNOW:}\\                  
+    Advantages:
+    \begin{itemize}
+    \item With new device rollouts, ONT can simply update MinKNOW to accomodate new devices.
+    \end{itemize}
+    Limitations:
+    \begin{itemize}
+    \item As of now, ONT does not compete with anyone when it comes to nanopore sequencing (a little with Illumina \textsuperscript{[12]}). This indicates that there is not as much a desire to release new technology.  
+    \end{itemize}
   \end{changemargin}
+
+  \noindent\rule{16cm}{0.4pt}
+
+  \begin{changemargin}{2cm}{2cm}
+    %\noindent\rule{12cm}{0.4pt}
+    \begin{center}
+      \textbf{iGenomics and GenoPo}
+      \noindent\rule{12cm}{0.1pt}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{What mobile apps are available in this space?}
+      \end{empheq}
+    \end{center}
+
+    %\emph{MinKNOW:} 
+    
+    %\noindent\rule{12cm}{0.4pt}
+
+    \begin{center}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{When were they developed?}
+      \end{empheq}
+    \end{center}
+
+    %\emph{MinKNOW:}
+    
+    \begin{center}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{What features do they offer?}
+      \end{empheq}
+    \end{center}
+
+    %\emph{MinKNOW:}\\
+    
+    \begin{center}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{Which apps are used most frequently by consumers?}
+      \end{empheq}
+    \end{center}
+
+  
+    \begin{center}
+      \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+        \noindent \textbf{Are there any advantages and limitations of these tools?}
+      \end{empheq}
+    \end{center}
+  \end{changemargin}
+
 
   \newpage
 
-  \begin{center}
-    \noindent\rule{16cm}{0.4pt}
-    \section*{References} %\cite{Taylor2005}}
-    \noindent\rule{16cm}{0.4pt}
-  \end{center}
+  %\begin{center}
+  %  \noindent\rule{16cm}{0.4pt}
+  %  \section*{References} %\cite{Taylor2005}}
+  %  \noindent\rule{16cm}{0.4pt}
+  %\end{center}
 
   \begin{thebibliography}{9}
     %\bibitem{latexcompanion} 
@@ -287,7 +367,7 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     %\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
     %[\textit{On the electrodynamics of moving bodies}]. 
     %Annalen der Physik, 322(10):891–921, 1905.
-    
+
     \bibitem{kurzgesagtyt} 
     Genetic Engineering Will Change Everything Forever - CRISPR, Kurzgesagt - In a Nutshell,
     \\\texttt{https://www.youtube.com/watch?v=jAhjPd4uNFY}
@@ -304,11 +384,47 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     DNA, \emph{Wikipedia},
     \\\texttt{https://en.wikipedia.org/wiki/DNA}
 
+    \bibitem{wikipediadnaseq} 
+    DNA sequencing, \emph{Wikipedia},
+    \\\texttt{https://en.wikipedia.org/wiki/DNA\_sequencing}
+
+    \bibitem{wikipediashotgun} 
+    Shotgun sequencing, \emph{Wikipedia},
+    \\\texttt{https://en.wikipedia.org/wiki/Shotgun\_sequencing}
+
     %\bibitem{wikipediadnasequencing} 
     %DNA sequencing, \emph{Wikipedia},
-    %\\\texttt{https://en.wikipedia.org/wiki/DNA_sequencing}
+    %\\\texttt{https://en.wikipedia.org/wiki/DNA\_sequencing}
   
-  \end{thebibliography}
+    \hspace{0.8cm}
+
+    \bibitem{ONT1} 
+    Nanopore DNA sequencing, \emph{Oxford Nanopore Technologies},
+    \\\texttt{https://nanoporetech.com/applications/dna-nanopore-sequencing}
+
+    \bibitem{ONT1} 
+    Portable DNA sequencing devices, \emph{Oxford Nanopore Technologies},
+    \\\texttt{https://nanoporetech.com/products}
+
+    \hspace{0.8cm}
+
+    \bibitem{ONT2} 
+    Introducing the new MinKNOW App, \emph{Oxford Nanopore Technologies},
+    \\\texttt{https://nanoporetech.com/about-us/news/introducing-new-minknow-app}
+
+    \bibitem{ONTyt} 
+    MinKNOW 2.0, a software update for nanopore sequencing, \emph{Oxford Nanopore Technologies},
+    \\\texttt{https://www.youtube.com/watch?v=JuBIxHa0NrQ}
+
+    \bibitem{ONT2} 
+    Intellectual property, \emph{Oxford Nanopore Technologies},
+    \\\texttt{https://nanoporetech.com/about-us/intellectual-property}
+
+    \bibitem{ONT2} 
+    Illumina and Oxford Nanopore Settle Patent Infringement Lawsuit, \emph{genomeweb},
+    \\\texttt{https://www.genomeweb.com/sequencing/illumina-and-oxford-nanopore-settle-patent \\ -infringement-lawsuit}
+
+  \end{thebibliography}5
 
 \end{changemargin}
 \end{document}
