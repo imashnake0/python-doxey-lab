@@ -1,7 +1,7 @@
 \documentclass[hidelinks, 11pt]{article}
 
 \title{Smartphone apps for portable \\ DNA sequencing and data analysis}
-\author{Kamalesh Reddy Paluru}
+\author{Ben Zwart, Carson Zhang, Huan Yi Shen, Julia Danieli, Kamalesh Reddy, Prakriti Chhabra}
 
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{graphicx}
@@ -25,6 +25,10 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage{array}
 
 \lstset{upquote=true}
 
@@ -36,6 +40,13 @@
 \newsavebox\mytempbox
 
 \makeatletter
+%“I don’t know if we were particularly lucky, but I really enjoyed every aspect of the summer student program: work, lectures and social life (a lot!).”
+
+%Summer Student Programme
+%How do you plan to spend your summer? How does getting involved in some of the world’s biggest experiments sound? This is more than summer work. It’s the chance to join CERN in Geneva – getting involved in the day-to-day work of our multicultural teams. Attend lectures, visit CERN facilities, take part in discussions and workshops with people who are leaders in their fields. In fact, it will be a summer like nowhere else on Earth.
+
+%Openlab summer Student Programme
+%Summer work experience in a place like nowhere else on earth: the birthplace of the world wide web! If you’re studying computer science, a great way to spend your summer could be to join the openlab summer student programme, to work on an advanced IT project and follow IT lectures specially prepared for you by experts at CERN and other institutes. Visits to the accelerators and experimental areas are also part of the programme, along with visits to external companies. Interested? Check it out and take part!r
 \newcommand\mybluebox{%
 \@ifnextchar[%]
 {\@mybluebox}%
@@ -158,7 +169,7 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
   \begin{changemargin}{2cm}{2cm}
     ``Nanopore sequencing is a unique, scalable technology that enables direct, real-time analysis of long DNA or RNA fragments. It works by monitoring changes to an electrical current as nucleic acids are passed through a protein nanopore. The resulting signal is decoded to provide the specific DNA or RNA sequence.'' \textsuperscript{[7]} %\footnote[1]{Hey}
   \end{changemargin}
-  So, nanopore sequencing involves passing a single-stranded DNA molecule through a "protein nanopore" and measuring changes in electric current to determine the base pair. This makes sense because we know that atoms are around $10^{-10}$m in diameter, so for a single strand of DNA (which is around 8-10 atoms wide) we have a width of  $\approx 10^{-9}$m $= 1$nm; hence nanopore! The devices used are surprisingly small, they are \textbf{really} small. \textsuperscript{[8]}
+  So, nanopore sequencing involves passing a single-stranded DNA molecule through a "protein nanopore" and measuring changes in electric current to determine the base pair (by "base calling" using \emph{Guppy}\textsuperscript{[17]}). This makes sense because we know that atoms are around $10^{-10}$m in diameter, so for a single strand of DNA (which is around 8-10 atoms wide) we have a width of  $\approx 10^{-9}$m $= 1$nm; hence nanopore! The devices used are surprisingly small, they are \textbf{really} small. \textsuperscript{[8]}
 
   \begin{figure}
     \begin{subfigure}{.5\textwidth}
@@ -217,18 +228,19 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
 
     \noindent\rule{16cm}{0.4pt}
 
-    % \begin{center}
-    %   \begin{tabular}{|c|c|c|}
-    %     \hline
-    %     \textbf{DNA sequencing} & \multicolumn{2}{|c|}{\textbf{DNA data analysis}} \\
-    %     \hline \
-    %     MinKNOW & GenoPo & iGenomics \\
-    %     \hline
-    %   \end{tabular}
-    % \end{center}
+    \hspace{0.4cm}
+
+    \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{DNA sequencing} & \multicolumn{2}{|c|}{\textbf{DNA data analysis}} \\
+        \hline \
+        MinKNOW & GenoPo & iGenomics \\
+        \hline
+      \end{tabular}
+    \end{center}
     
     \centering
-    <insert table here>
 
     \begin{changemargin}{2cm}{2cm}
     \noindent\rule{12cm}{0.4pt}
@@ -308,6 +320,7 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     \end{itemize}
   \end{changemargin}
 
+  \newpage
   % \noindent\rule{12cm}{0.4pt}
 
     \begin{changemargin}{2cm}{2cm}
@@ -325,7 +338,6 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     %\emph{MinKNOW:} 
     
     %\noindent\rule{12cm}{0.4pt}
-    \newpage
 
     \begin{center}
       \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
@@ -334,8 +346,8 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     \end{center}    
 
     \begin{itemize}
-      \item iGenomics was developed by Aspyn Palatnick, Bin Zhou, Elodie Ghedin, and Michael Schatz \textsuperscript{[15]} and was published in \textbf{April 2020} (As shown in Apple's App Store).
-      \item GenoPo (formerly known as F5N \textsuperscript{[16]}) was developed by students from the University of Peradiniya \textsuperscript{[14]}, it was released on August 12th, 2020 (As shown in Google's Play Store).
+      \item \emph{iGenomics} was developed by Aspyn Palatnick, Bin Zhou, Elodie Ghedin, and Michael Schatz \textsuperscript{[15]} and was published in \textbf{April 2020} (As shown in Apple's App Store).
+      \item \emph{GenoPo} (formerly known as F5N \textsuperscript{[16]}) was developed by students from the \emph{University of Peradiniya} \textsuperscript{[14]}, it was released on \textbf{August 12th, 2020} (As shown in Google's Play Store).
     \end{itemize}
     %\emph{MinKNOW:}
     
@@ -344,6 +356,22 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
         \noindent \textbf{What features do they offer?}
       \end{empheq}
     \end{center}
+
+    \emph{iGenomics}:
+    \begin{itemize}
+      \item \textbf{Alignment reading} (?)
+      \item \textbf{Coverage profile} (?)
+      \item \textbf{Call variants} (?)
+      \item \textbf{Visualize results on any IOS device} (?)
+      \item \textbf{AirDrop sequencing data from one device to another} (?)
+    \end{itemize}
+    \emph{GenoPo}:
+    \begin{itemize}
+      \item \textbf{Real-world applications}: GenoPo analysis happens very quickly, averaging about 27 minutes per SARS-CoV-2 sample with 5-10 mutations detected, and a consensus sequence generated. This is a small fraction of the normal turnaround time for your average SARS-CoV-2 nanopore sequencing. 
+      \item \textbf{Compatibility}: Designed for compatibility with many bioinformatics analyses including sequence alignment, variant detection and DNA methylation profiling. 
+      \item \textbf{Real time sequence analysis}: Allows real-time methylation calling on nanopore sequencing datasets which can also accommodate both small and large genomes. 
+      \item \textbf{Control}: Features auto configured pipelines available for Arctic C Pipeline and Consensus Generation Pipeline, but also allows for manual configuration of pipelines; including a terminal environment allowing users to enter command line arguments. The terminal mode allows users to run any sub tool as well.
+    \end{itemize}
 
     %\emph{MinKNOW:}\\
     
@@ -363,6 +391,104 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
         \noindent \textbf{Are there any advantages and limitations of these tools?}
       \end{empheq}
     \end{center}
+    \emph{iGenomics}:\\
+    \textbf{Advantages}:
+    \begin{itemize}
+    \item AirDrop - DNA analysis in remote location, with/without internet
+    \item User Reviews - on the Apple store, the reviews are mostly positive (limited samples)
+    \item ``The novelty of this application is not in the algorithms used but rather how they have been implemented in a mobile environment.''
+    \end{itemize}
+    \emph{GenoPo}: \\
+    \textbf{Advantages}:
+  \begin{itemize} 
+    \item An advantage of GenoPo is that it is able to methylate genomes of all sizes, and has been used in similar research to that we are interested in with SARS-CoV-2. 
+    \item It contains manual pipeline configuration and a terminal environment which makes it very easily customizable to each Bioinformatician's needs. GenoPo is also very quickly able to complete it’s entire workflow.
+  \end{itemize}
+  \textbf{Limitations}:
+  \begin{itemize}
+    \item Although GenoPo has been popular on the Google Play store, it is unfortunately unavailable for iOS. It is safe to assume GenoPo would be used by more people if it were available for iOS devices as well. 
+    \item Limited reviews of the app revealed significant flaws in the user-interface design. 11 product reviews suggest that the UI is difficult to navigate and interpret.
+  \end{itemize}
+
+\newpage
+
+    \noindent\rule{12cm}{0.4pt}
+      \begin{center}
+        \textbf{DNA data analysis - comprehensive (not portable)}
+        \noindent\rule{12cm}{0.1pt}
+        \begin{empheq}[box={\mybluebox[5pt][10pt]}]{equation*}
+          \noindent \textbf{What mobile apps are available in this space?}
+        \end{empheq}
+      \end{center}
+
+      Search results for "Dna analysis", "Dna sequencing", and "Genomics":
+      (\emph{Legend}: \colorbox{green}{\textbf{Active and Relevant}}, \\ 
+                                    \hspace{1.5cm} \colorbox{yellow}{\textbf{Active}}/\textbf{Inactive and Interesting/Buggy}, \\
+                                    \hspace{1.5cm} \colorbox{pink}{\sout{Gimmick/Irrelevant}})
+    \hspace{0.8cm} \\
+    \hspace{0.8cm} \\
+
+    \centering
+    \textbf{iOS}
+    \begin{center}
+      \begin{tabular}{|m{15em}|m{3cm}|m{3cm}|}
+        \hline
+        \textbf{Apps} & \textbf{Date} & \textbf{Installs} \\
+        \hline 
+        \colorbox{green}{\textbf{23andMe}} & 2020 & at least 10997 \\
+        
+        \colorbox{green}{\textbf{Ancestry}} & 2020 & at least 8067 \\
+        \colorbox{green}{\textbf{MyHeritage}} & 2020 & at least 1642 \\
+        \colorbox{green}{\textbf{AncestryDNA}} & 2020 & at least 376 \\
+        \colorbox{green}{\textbf{iGenomics}} & 2020 & n \\
+        \hline 
+        \colorbox{yellow}{\textbf{Seq Analysis}} & 2020 & n \\
+        \colorbox{yellow}{\textbf{Genewall}} & 2020 & n \\
+        \textbf{DNA2App} & 2015 & n \\
+        \textbf{DNAApp} & 2014 & n \\
+        \textbf{MySequence} & 2013 & at least 2\\
+        \hline 
+        \colorbox{pink}{\sout{Dynamic News Analysis}} & N/A & N/A \\
+        \colorbox{pink}{\sout{Data Navigation and Analysis}} & N/A & N/A \\
+        \colorbox{pink}{\sout{ERHA.DNA}} & N/A & N/A \\
+        \colorbox{pink}{\sout{My Skincaud}} & N/A & N/A \\
+        \hline
+      \end{tabular}
+    \end{center}
+    %\noindent\rule{12cm}{0.1pt}
+    \hspace{0.8cm} \\
+    \hspace{0.8cm} \\
+    \centering
+    \textbf{Android}
+    \begin{center}
+      \begin{tabular}{|m{15em}|m{3cm}|m{3cm}|}
+        \hline
+        \textbf{Apps} & \textbf{Date} & \textbf{Installs} \\
+        \hline 
+        \colorbox{green}{\textbf{Ancestry}} & 2011 & 5000000+ \\
+        \colorbox{green}{\textbf{MyHeritage}} & 2011 & 5000000+ \\
+        \colorbox{green}{\textbf{23andMe}} & 2018 & 1000000+ \\
+        \colorbox{green}{\textbf{Genomapp}} & 2015 & 50000+ \\
+        \colorbox{green}{\textbf{Genetica}} & 2020 & 1000+ \\
+        \colorbox{green}{\textbf{DNA test}} & 2020 & 1000+ \\
+        \colorbox{green}{\textbf{GenoPo}} & 2020 & 1000+ \\
+        \hline 
+        \colorbox{yellow}{\textbf{Face2Gene}} & 2016 & 50000+ \\
+        \colorbox{yellow}{\textbf{CircleDNA}} & 2019 & 10000+ \\
+        \textbf{dietgene} & 2020 & 10000+ \\
+        \textbf{DNA+} & 2019 & 1000+\\
+        \hline 
+        \colorbox{pink}{\sout{My DNA}} & N/A & N/A \\
+        \hline
+      \end{tabular}
+    \end{center}
+      
+%     Used to complete genome sequence of SARS-CoV-2 (human coronavirus) sequenced on nanopore device
+% Taking less than 30 minutes per sample on a range of smartphones
+% Entire workflow completed in an average of 27 minutes per sample detected 5-10 mutations and generated a complete consensus genome for SARS-CoV-2 in each patient
+% This is a fraction of the typical turnaround time for your average SARS-CoV-2 nanopore sequencing
+% The list of mutations and consensus sequences within the genome were identical to those generated by a best-practice workflow executed on a high performance computer
+
   \end{changemargin}
 
   % \begin{changemargin}{2cm}{2cm}
@@ -459,7 +585,7 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     %\\\texttt{https://en.wikipedia.org/wiki/DNA\_sequencing}
   
     \hspace{0.8cm}\\
-    \hspace{0.8cm}
+    %\hspace{0.8cm}
 
     \bibitem{ONT1} 
     Nanopore DNA sequencing, \emph{Oxford Nanopore Technologies},
@@ -470,7 +596,7 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     \\\texttt{https://nanoporetech.com/products}
 
     \hspace{0.8cm}\\
-    \hspace{0.8cm}
+    %\hspace{0.8cm}
 
     \bibitem{ONT2} 
     Introducing the new MinKNOW App, \emph{Oxford Nanopore Technologies},
@@ -503,6 +629,18 @@ There are a variety of sequencing methods, we will be looking into "Nanopore Seq
     \bibitem{Github} 
     f5n, \emph{GitHub},
     \\\texttt{https://github.com/SanojPunchihewa/f5n}
+
+    %\hspace{0.8cm}
+
+    \bibitem{Guppy} 
+    Basecalling using Guppy, \emph{Guppy},
+    \\\texttt{https://timkahlke.github.io/LongRead\_tutorials/BS\_G.html}
+  
+    \hspace{0.8cm}\\
+    \hspace{0.8cm}
+
+
+  
   \end{thebibliography}
 
 \end{changemargin}
